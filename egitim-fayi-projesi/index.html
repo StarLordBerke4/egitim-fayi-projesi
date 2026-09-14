@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eğitim Fayı (The Education Fault Line) — SKA 4: Nitelikli Eğitim</title>
+  <meta name="description" content="SKA 4: Nitelikli Eğitim konusunu işleyen, küresel ve yerel eğitim krizinin soğuk gerçekliğini sunan tek sayfalık web sitesi." />
+  <meta property="og:title" content="Eğitim Fayı (The Education Fault Line) — SKA 4: Nitelikli Eğitim" />
+  <meta property="og:description" content="SKA 4: Nitelikli Eğitim konusunu işleyen, küresel ve yerel eğitim krizinin soğuk gerçekliğini sunan tek sayfalık web sitesi." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Google Fonts: Inter & JetBrains Mono for brutalist telemetry feel -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ==========================================================================
+       RESET & CORE VARIABLES
+       ========================================================================== */
+    :root {
+      --bg-pitch: #030303;
+      --bg-dark: #0a0a0a;
+      --bg-surface: #121212;
+      --bg-surface-elevated: #181818;
+      --text-main: #f0f0f0;
+      --text-muted: #8e8e93;
+      --text-dim: #545458;
+      --accent-red: #e50914;
+      --accent-red-glow: rgba(229, 9, 20, 0.25);
+      --accent-orange: #ff5500;
+      --accent-orange-glow: rgba(255, 85, 0, 0.22);
+      --border-subtle: #222222;
+      --border-hard: #333333;
+      --border-alert: rgba(229, 9, 20, 0.45);
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-pitch);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      background-color: var(--bg-pitch);
+      color: var(--text-main);
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Ambient Fault Line Texture (Noise & Grid) */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        linear-gradient(to right, rgba(255,255,255,0.015) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,0.015) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Top Telemetry Bar */
+    #telemetry-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 36px;
+      background-color: rgba(3, 3, 3, 0.88);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border-subtle);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    .telemetry-tag {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: var(--accent-red);
+      box-shadow: 0 0 10px var(--accent-red);
+      animation: pulse-alert 1.8s infinite ease-in-out;
+    }
+
+    @keyframes pulse-alert {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.35; transform: scale(0.85); }
+    }
+
+    /* Layout Containers */
+    .section-wrapper {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* ==========================================================================
+       MODÜL 1: HERO BANNER (100VH)
+       ========================================================================== */
+    #hero {
+      position: relative;
+      height: 100vh;
+      min-height: 640px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding-top: 36px;
+      background: radial-gradient(circle at 50% 55%, rgba(229, 9, 20, 0.09) 0%, rgba(3, 3, 3, 0.95) 75%, var(--bg-pitch) 100%);
+      border-bottom: 1px solid var(--border-subtle);
+      user-select: none;
+    }
+
+    .hero-content {
+      max-width: 860px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      padding: 0 20px;
+    }
+
+    .hero-pre-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent-orange);
+      padding: 4px 14px;
+      background-color: rgba(255, 85, 0, 0.08);
+      border: 1px solid rgba(255, 85, 0, 0.25);
+    }
+
+    .hero-title {
+      font-size: clamp(2.4rem, 6vw, 4.8rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1.08;
+      color: #ffffff;
+      text-transform: uppercase;
+      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.8);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.15rem, 2.3vw, 1.6rem);
+      font-weight: 300;
+      color: #a0a0a5;
+      letter-spacing: -0.01em;
+      line-height: 1.5;
+      max-width: 720px;
+    }
+
+    .hero-subtitle strong {
+      color: var(--accent-red);
+      font-weight: 600;
+    }
+
+    /* Ambient Fault Line Graphic */
+    .hero-fault-line {
+      width: 140px;
+      height: 2px;
+      margin: 14px auto 0;
+      background: linear-gradient(90deg, transparent, var(--accent-red), var(--accent-orange), transparent);
+      box-shadow: 0 0 12px var(--accent-red);
+    }
+
+    /* Animated Downward Arrow */
+    .hero-scroll-indicator {
+      position: absolute;
+      bottom: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.3s;
+    }
+
+    .scroll-arrow-svg {
+      width: 22px;
+      height: 38px;
+      stroke: #888888;
+      stroke-width: 1.5;
+      fill: none;
+      animation: arrow-down 2s infinite ease-in-out;
+    }
+
+    @keyframes arrow-down {
+      0% {
+        transform: translateY(0);
+        opacity: 0.3;
+      }
+      50% {
+        transform: translateY(10px);
+        opacity: 1;
+        stroke: var(--accent-orange);
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 0.3;
+      }
+    }
+
+    /* ==========================================================================
+       SECTION HEADERS & STRUCTURAL MODULES
+       ========================================================================== */
+    section {
+      padding: 110px 0;
+      position: relative;
+    }
+
+    .section-header {
+      margin-bottom: 56px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .section-index {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-index-line {
+      display: inline-block;
+      width: 32px;
+      height: 1px;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 3.8vw, 2.7rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      text-transform: uppercase;
+    }
+
+    .section-desc {
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 680px;
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       MODÜL 2: KÜRESEL FAY HATTI (DÜNYADAN MEVCUT DURUM)
+       ========================================================================== */
+    #global-fault-line {
+      background-color: var(--bg-dark);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    #global-fault-line .section-index {
+      color: var(--accent-orange);
+    }
+
+    #global-fault-line .section-index-line {
+      background-color: var(--accent-orange);
+    }
+
+    /* Visual Placeholder Container */
+    .context-media-block {
+      margin-bottom: 50px;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .context-media-header {
+      padding: 10px 18px;
+      background-color: #0d0d0d;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-dim);
+      letter-spacing: 0.05em;
+    }
+
+    .context-media-body {
+      position: relative;
+      height: 280px;
+      width: 100%;
+      background-color: #070707;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .placeholder-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(100%) contrast(125%) brightness(40%);
+      transition: filter 0.5s ease;
+    }
+
+    .context-media-body:hover .placeholder-img {
+      filter: grayscale(85%) contrast(130%) brightness(48%);
+    }
+
+    .media-overlay-badge {
+      position: absolute;
+      bottom: 18px;
+      left: 18px;
+      background-color: rgba(3, 3, 3, 0.85);
+      border: 1px solid var(--border-hard);
+      padding: 6px 14px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: #bbbbbb;
+      letter-spacing: 0.05em;
+      pointer-events: none;
+    }
+
+    /* 3 Data Cards Grid */
+    .data-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .data-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      padding: 36px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .data-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--border-hard);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+    }
+
+    .card-metric-top {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+
+    .metric-number {
+      font-size: clamp(2.4rem, 4vw, 3.4rem);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      color: #ffffff;
+      font-feature-settings: "tnum";
+    }
+
+    .metric-heat-indicator {
+      width: 10px;
+      height: 10px;
+      border-radius: 2px;
+      background-color: var(--accent-orange);
+    }
+
+    .card-label {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--accent-orange);
+      margin-bottom: 18px;
+    }
+
+    .card-description {
+      font-size: 0.95rem;
+      color: #b0b0b5;
+      line-height: 1.65;
+      margin-bottom: 26px;
+      flex-grow: 1;
+    }
+
+    .card-source {
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-dim);
+      letter-spacing: 0.05em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .source-bullet {
+      color: var(--accent-orange);
+    }
+
+    /* ==========================================================================
+       MODÜL 3: TÜRKİYE FAY HATTI (TÜRKİYE'DEN MEVCUT DURUM)
+       ========================================================================== */
+    #turkey-fault-line {
+      background-color: var(--bg-pitch);
+      border-bottom: 1px solid var(--border-hard);
+      position: relative;
+    }
+
+    /* Distinctive warning hazard stripes along the edge */
+    #turkey-fault-line::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: repeating-linear-gradient(
+        -45deg,
+        var(--accent-red),
+        var(--accent-red) 14px,
+        #000000 14px,
+        #000000 28px
+      );
+    }
+
+    #turkey-fault-line .section-index {
+      color: var(--accent-red);
+    }
+
+    #turkey-fault-line .section-index-line {
+      background-color: var(--accent-red);
+    }
+
+    /* Sharper, harsher cards for Turkey section */
+    .turkey-card {
+      background-color: #0b0b0d;
+      border: 1px solid var(--border-hard);
+      border-left: 3px solid var(--accent-red);
+      padding: 36px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .turkey-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(229, 9, 20, 0.8);
+      box-shadow: 0 12px 36px rgba(229, 9, 20, 0.12);
+    }
+
+    .turkey-card .metric-number {
+      color: #ff3b30;
+      text-shadow: 0 0 16px rgba(229, 9, 20, 0.3);
+    }
+
+    .turkey-card .card-label {
+      color: #ff3b30;
+    }
+
+    .turkey-card .card-source .source-bullet {
+      color: var(--accent-red);
+    }
+
+    .severity-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--accent-red);
+      background-color: rgba(229, 9, 20, 0.12);
+      border: 1px solid rgba(229, 9, 20, 0.35);
+      padding: 3px 8px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      align-self: flex-start;
+    }
+
+    /* ==========================================================================
+       MODÜL 4: VERİ İÇGÖRÜSÜ & GELECEK PROJEKSİYONU (TERMINAL SCREEN)
+       ========================================================================== */
+    #projection {
+      background-color: #000000;
+      padding: 130px 0 160px;
+      position: relative;
+    }
+
+    .terminal-container {
+      background-color: #040404;
+      border: 1px solid #282828;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.9), 0 0 40px rgba(229, 9, 20, 0.05);
+      position: relative;
+    }
+
+    /* CRT Scanline Simulation */
+    .terminal-container::after {
+      content: " ";
+      display: block;
+      position: absolute;
+      top: 0; left: 0; bottom: 0; right: 0;
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+      background-size: 100% 4px;
+      z-index: 10;
+      pointer-events: none;
+      opacity: 0.5;
+    }
+
+    .terminal-topbar {
+      background-color: #0e0e0e;
+      padding: 12px 20px;
+      border-bottom: 1px solid #222222;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: #777777;
+      letter-spacing: 0.06em;
+    }
+
+    .terminal-controls {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .terminal-circle {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background-color: #2b2b2b;
+    }
+
+    .terminal-circle.active {
+      background-color: var(--accent-red);
+      box-shadow: 0 0 6px var(--accent-red);
+    }
+
+    .terminal-body {
+      padding: 50px 48px 60px;
+      font-family: var(--font-mono);
+      position: relative;
+      z-index: 5;
+    }
+
+    .terminal-meta-row {
+      font-size: 12px;
+      color: #666666;
+      margin-bottom: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      border-bottom: 1px dashed #202020;
+      padding-bottom: 16px;
+    }
+
+    .terminal-meta-row span {
+      color: var(--accent-orange);
+    }
+
+    .terminal-header-title {
+      font-family: var(--font-sans);
+      font-size: clamp(1.8rem, 3.2vw, 2.4rem);
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.02em;
+      margin-bottom: 28px;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .terminal-header-title::before {
+      content: ">";
+      font-family: var(--font-mono);
+      color: var(--accent-red);
+      font-weight: 700;
+      font-size: 1.8rem;
+    }
+
+    .terminal-manifest-text {
+      font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+      line-height: 1.8;
+      color: #d1d1d6;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      text-align: justify;
+    }
+
+    .terminal-footer-status {
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px dashed #222222;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 12px;
+      color: #6e6e73;
+    }
+
+    .cursor-blink {
+      display: inline-block;
+      width: 10px;
+      height: 18px;
+      background-color: var(--accent-red);
+      vertical-align: middle;
+      margin-left: 6px;
+      animation: blink 1s step-end infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    /* Minimalist Footer (NO CTA, NO DONATE, NO CONTACT) */
+    footer {
+      background-color: #020202;
+      border-top: 1px solid #1a1a1a;
+      padding: 36px 0;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: #4a4a4e;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      user-select: none;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    /* Scroll animations */
+    .fade-in-entry {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .fade-in-entry.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ==========================================================================
+       RESPONSIVE BREAKPOINTS
+       ========================================================================== */
+    @media (max-width: 992px) {
+      .data-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .section-wrapper {
+        padding: 0 20px;
+      }
+      section {
+        padding: 75px 0;
+      }
+      .terminal-body {
+        padding: 32px 24px 40px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      #telemetry-bar {
+        font-size: 10px;
+        padding: 0 14px;
+      }
+      .telemetry-tag span.hide-on-mobile {
+        display: none;
+      }
+      .hero-title {
+        font-size: 2.1rem;
+      }
+      .hero-subtitle {
+        font-size: 1.05rem;
+      }
+      .terminal-header-title {
+        font-size: 1.4rem;
+      }
+      .terminal-manifest-text {
+        font-size: 0.98rem;
+        line-height: 1.7;
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Telemetry Bar -->
+  <header id="telemetry-bar" aria-label="Sistem Bilgi Çubuğu">
+    <div class="telemetry-tag">
+      <div class="status-dot"></div>
+      <span>SKA 4 // NİTELİKLİ EĞİTİM İZLEME PROTOKOLÜ</span>
+    </div>
+    <div class="telemetry-tag">
+      <span class="hide-on-mobile">DURUM: </span>
+      <span style="color: var(--accent-red);">KRİTİK RİSK EŞİĞİ</span>
+      <span class="hide-on-mobile">| SİSMİK İNDEKS: 9.8</span>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==========================================================================
+         MODÜL 1: ANA SAYFA (HERO BANNER)
+         ========================================================================== -->
+    <section id="hero" aria-label="Ana Sayfa Hero Alanı">
+      <div class="hero-content fade-in-entry is-visible">
+        <div class="hero-pre-label" id="hero-badge">
+          <span>KÜRESEL VE YEREL VERİ RAPORU</span>
+        </div>
+
+        <h1 class="hero-title" id="hero-main-title">
+          SKA 4: Nitelikli Eğitim
+        </h1>
+
+        <p class="hero-subtitle" id="hero-sub-title">
+          Eğitim Fayı — <strong>Bazı temeller sessizce çöker.</strong>
+        </p>
+
+        <div class="hero-fault-line" aria-hidden="true"></div>
+      </div>
+
+      <!-- Downward Scroll Indicator (No CTA, smooth navigation purely) -->
+      <a href="#global-fault-line" class="hero-scroll-indicator" id="scroll-down-btn" aria-label="Aşağı kaydırın">
+        <svg class="scroll-arrow-svg" viewBox="0 0 24 40" aria-hidden="true">
+          <line x1="12" y1="4" x2="12" y2="30"></line>
+          <polyline points="6,24 12,30 18,24"></polyline>
+        </svg>
+      </a>
+    </section>
+
+    <!-- ==========================================================================
+         MODÜL 2: KÜRESEL FAY HATTI (DÜNYADAN MEVCUT DURUM)
+         ========================================================================== -->
+    <section id="global-fault-line" aria-labelledby="global-heading">
+      <div class="section-wrapper">
+        <header class="section-header fade-in-entry">
+          <div class="section-index">
+            <span class="section-index-line"></span>
+            <span>MODÜL 02 // RAPOR</span>
+          </div>
+          <h2 class="section-title" id="global-heading">Küresel Fay Hattı</h2>
+          <p class="section-desc">
+            Dünya genelinde temel öğrenme kabiliyetleri ve okuryazarlık alanındaki asimetrik çöküşün resmi verileri.
+          </p>
+        </header>
+
+        <!-- Yer Tutucu Görsel Alanı (Arayüz Gereksinimi) -->
+        <div class="context-media-block fade-in-entry" id="global-media-placeholder">
+          <div class="context-media-header">
+            <span>[GÖRSEL YER TUTUCU // ARCHIVE_REF: GLOBAL_CRISIS_01]</span>
+            <span>KAYIT: DÜNYA BANKASI & UNESCO</span>
+          </div>
+          <div class="context-media-body">
+            <img 
+              src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1200&q=80" 
+              alt="Küresel eğitim krizi ve terk edilmiş sınıf koridoru temsilî görseli" 
+              loading="lazy" 
+              class="placeholder-img"
+              id="global-img-slot"
+            />
+            <div class="media-overlay-badge">
+              Temsilî Arşiv Alanı: Küresel Öğrenme Yoksulluğu Kuşağı
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 Adet Veri Kartı -->
+        <div class="data-cards-grid" id="global-cards-container">
+          <!-- Kart 1 -->
+          <article class="data-card fade-in-entry" id="card-global-1">
+            <div>
+              <div class="card-metric-top">
+                <span class="metric-number">%70</span>
+                <span class="metric-heat-indicator" title="Yüksek Tehlike Seviyesi"></span>
+              </div>
+              <h3 class="card-label">Öğrenme Yoksulluğu</h3>
+              <p class="card-description">
+                Düşük ve orta gelir düzeyindeki ülkelerde yaşayan 10 yaş grubu çocukların %70'i basit metinleri okuma ve anlama becerisinden yoksundur. Küresel eğitim kalitesindeki asimetrik dağılım, ileriki öğrenme aşamaları için gerekli zemini yok etmektedir.
+              </p>
+            </div>
+            <div class="card-source">
+              <span class="source-bullet">■</span> Kaynak: Dünya Bankası 2022
+            </div>
+          </article>
+
+          <!-- Kart 2 -->
+          <article class="data-card fade-in-entry" id="card-global-2">
+            <div>
+              <div class="card-metric-top">
+                <span class="metric-number">250 MİLYON</span>
+                <span class="metric-heat-indicator" title="Yüksek Tehlike Seviyesi"></span>
+              </div>
+              <h3 class="card-label">Okulsuz Bırakılanlar</h3>
+              <p class="card-description">
+                Dünya genelinde 250 milyon çocuk ve ergen eğitim sistemine hiç entegre olamamış veya sistemden kopmuştur. Bu nüfus, formel beceri ölçüm istatistiklerinin tamamen dışında yer almaktadır.
+              </p>
+            </div>
+            <div class="card-source">
+              <span class="source-bullet">■</span> Kaynak: UNESCO 2023
+            </div>
+          </article>
+
+          <!-- Kart 3 -->
+          <article class="data-card fade-in-entry" id="card-global-3">
+            <div>
+              <div class="card-metric-top">
+                <span class="metric-number">763 MİLYON</span>
+                <span class="metric-heat-indicator" title="Yüksek Tehlike Seviyesi"></span>
+              </div>
+              <h3 class="card-label">Küresel Okuryazarlık Çöküşü</h3>
+              <p class="card-description">
+                Dünya çapında 763 milyon genç ve yetişkin temel okuryazarlık becerisine sahip değildir. Bu kitle, bilgi ekonomisine ve dijitalleşen sosyo-ekonomik yapılara teknik olarak entegre olamamaktadır.
+              </p>
+            </div>
+            <div class="card-source">
+              <span class="source-bullet">■</span> Kaynak: UNESCO İstatistik Enstitüsü 2023
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         MODÜL 3: TÜRKİYE FAY HATTI (TÜRKİYE'DEN MEVCUT DURUM)
+         ========================================================================== -->
+    <section id="turkey-fault-line" aria-labelledby="turkey-heading">
+      <div class="section-wrapper">
+        <header class="section-header fade-in-entry">
+          <div class="section-index">
+            <span class="section-index-line"></span>
+            <span>MODÜL 03 // BÖLGESEL KIRILMA</span>
+          </div>
+          <h2 class="section-title" id="turkey-heading">Türkiye Fay Hattı</h2>
+          <p class="section-desc">
+            Ulusal ölçekte örgün eğitimden kopuş, akademik yetersizlik ve fizyolojik yoksunluğun kayıt altına alınmış verileri.
+          </p>
+        </header>
+
+        <!-- Yer Tutucu Görsel Alanı (Arayüz Gereksinimi) -->
+        <div class="context-media-block fade-in-entry" id="turkey-media-placeholder">
+          <div class="context-media-header" style="border-bottom-color: rgba(229, 9, 20, 0.3);">
+            <span style="color: var(--accent-red);">[GÖRSEL YER TUTUCU // ARCHIVE_REF: TR_SEISMIC_DATA_02]</span>
+            <span>KAYIT: ERG & OECD PISA</span>
+          </div>
+          <div class="context-media-body">
+            <img 
+              src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1200&q=80" 
+              alt="Türkiye eğitim eşitsizliği ve boş sıralar temsilî görseli" 
+              loading="lazy" 
+              class="placeholder-img"
+              id="turkey-img-slot"
+            />
+            <div class="media-overlay-badge" style="border-left: 3px solid var(--accent-red);">
+              Temsilî Arşiv Alanı: Türkiye Eğitim Kırılma Sahası
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 Adet Sert Hatlı Veri Kartı -->
+        <div class="data-cards-grid" id="turkey-cards-container">
+          <!-- Kart 1 -->
+          <article class="turkey-card fade-in-entry" id="card-tr-1">
+            <div>
+              <span class="severity-badge">ALARM: SİSTEM DIŞI</span>
+              <div class="card-metric-top">
+                <span class="metric-number">855.000+</span>
+              </div>
+              <h3 class="card-label">Örgün Eğitimin Dışında</h3>
+              <p class="card-description">
+                Zorunlu eğitim çağında bulunan 855 binden fazla çocuk örgün eğitimin tamamen dışındadır. Formel beceri kazanım süreçlerinden ve akademik akreditasyon imkanlarından yoksundurlar.
+              </p>
+            </div>
+            <div class="card-source">
+              <span class="source-bullet">■</span> Kaynak: ERG 2023-2024
+            </div>
+          </article>
+
+          <!-- Kart 2 -->
+          <article class="turkey-card fade-in-entry" id="card-tr-2">
+            <div>
+              <span class="severity-badge">ALARM: BİLİŞSEL EŞİK ALTI</span>
+              <div class="card-metric-top">
+                <span class="metric-number">%18,5</span>
+              </div>
+              <h3 class="card-label">Akademik Yetersizlik Uçurumu</h3>
+              <p class="card-description">
+                PISA verilerine göre, her beş öğrenciden yaklaşık biri okuma, matematik ve fen bilimleri yeterlilik seviyelerinin tamamının altında kalarak sistemsel bir çöküşü işaret etmektedir.
+              </p>
+            </div>
+            <div class="card-source">
+              <span class="source-bullet">■</span> Kaynak: OECD PISA 2022
+            </div>
+          </article>
+
+          <!-- Kart 3 -->
+          <article class="turkey-card fade-in-entry" id="card-tr-3">
+            <div>
+              <span class="severity-badge">ALARM: FİZYOLOJİK YOKSUNLUK</span>
+              <div class="card-metric-top">
+                <span class="metric-number">%19,3</span>
+              </div>
+              <h3 class="card-label">Okulda Açlık</h3>
+              <p class="card-description">
+                Öğrencilerin %19,3'ü maddi imkânsızlıklar nedeniyle haftada en az bir kez okulda öğün atladığını belgelemiştir. Temel fizyolojik yoksunluk, bilişsel odaklanmayı doğrudan kısıtlamaktadır.
+              </p>
+            </div>
+            <div class="card-source">
+              <span class="source-bullet">■</span> Kaynak: MEB PISA 2022 Ön Rapor
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         MODÜL 4: VERİ İÇGÖRÜSÜ & GELECEK PROJEKSİYONU (KÖR NOKTALAR)
+         ========================================================================== -->
+    <section id="projection" aria-labelledby="projection-heading">
+      <div class="section-wrapper">
+        <header class="section-header fade-in-entry" style="margin-bottom: 36px;">
+          <div class="section-index" style="color: #666666;">
+            <span class="section-index-line" style="background-color: #666666;"></span>
+            <span>MODÜL 04 // SİSTEM ÇÖZÜMLEMESİ</span>
+          </div>
+        </header>
+
+        <div class="terminal-container fade-in-entry" id="terminal-screen">
+          <div class="terminal-topbar">
+            <div class="terminal-controls">
+              <div class="terminal-circle active"></div>
+              <div class="terminal-circle"></div>
+              <div class="terminal-circle"></div>
+              <span style="margin-left: 8px;">TERMINAL // FAULT_PROJECTION_v4.LOG</span>
+            </div>
+            <div>STATUS: READ_ONLY_LOG</div>
+          </div>
+
+          <div class="terminal-body">
+            <div class="terminal-meta-row">
+              <div>İSTASYON: <span>SİSMİK_EĞİTİM_ANALİZ</span></div>
+              <div>ZAMAN DAMGASI: <span id="telemetry-timestamp">2026-09-14 // 13:29 UTC</span></div>
+              <div>PROJEKSİYON ARALIĞI: <span>2024-2039 [15 YIL]</span></div>
+            </div>
+
+            <h2 class="terminal-header-title" id="projection-heading">
+              Gelecek Projeksiyonu ve Sistematik Riskler
+            </h2>
+
+            <p class="terminal-manifest-text" id="terminal-text-block">
+              "Eğitimdeki nitelik kaybı ve fırsat eşitsizliği, yalnızca bugünün bir sorunu değil; önümüzdeki 15 yılın yapısal ekonomik krizlerinin öncü sarsıntısıdır. Akademik yetersizlikle mezun olan veya sistemin tamamen dışına itilen bu devasa demografik yığın, yapay zekâ ve otomasyonun domine edeceği yeni işgücü piyasalarında 'istihdam edilemez' bir alt sınıf yaratma riskini barındırmaktadır. Türkiye'nin doğusu ile batısı, dünyanın ise kuzeyi ile güneyi arasındaki bu öğrenme makası, gelecekteki gelir adaletsizliğinin istatistiksel garantisidir. Sistem onarılmıyor; sadece çöküşün hızı istatistiklere dönüştürülüyor."<span class="cursor-blink" aria-hidden="true"></span>
+            </p>
+
+            <div class="terminal-footer-status">
+              <div>KAYIT SONU // DÜZELTME VEYA EYLEM PROTOKOLÜ TANIMLANMAMIŞTIR</div>
+              <div>ÇÖKÜŞ KATSAYISI: BELGELENDİ</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Cold, Unadorned Footer (No CTA, No donation, No social links) -->
+  <footer id="site-footer">
+    <div class="section-wrapper footer-inner">
+      <div>EĞİTİM FAYI (THE EDUCATION FAULT LINE) — SKA 4 BELGELEME SİSTEMİ</div>
+      <div>VERİLER RESMİ ULUSLARARASI VE ULUSAL KURUMLARDAN DERLENMİŞTİR</div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       TEMEL JAVASCRIPT (SMOOTH SCROLL & INTERSECTION OBSERVER ANIMATION)
+       ========================================================================== -->
+  <script>
+    (function () {
+      'use strict';
+
+      // 1. Smooth scroll to Module 2 when arrow is clicked
+      const scrollArrow = document.getElementById('scroll-down-btn');
+      if (scrollArrow) {
+        scrollArrow.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.getElementById('global-fault-line');
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      }
+
+      // 2. Intersection Observer for Smooth Scroll Reveal Transitions
+      const animatedElements = document.querySelectorAll('.fade-in-entry');
+      
+      if ('IntersectionObserver' in window) {
+        const observerOptions = {
+          root: null,
+          rootMargin: '0px 0px -60px 0px',
+          threshold: 0.12
+        };
+
+        const revealObserver = new IntersectionObserver(function (entries, observer) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        animatedElements.forEach(function (el) {
+          revealObserver.observe(el);
+        });
+      } else {
+        // Fallback if IntersectionObserver is not supported
+        animatedElements.forEach(function (el) {
+          el.classList.add('is-visible');
+        });
+      }
+
+      // 3. Dynamic UTC Timestamp in Telemetry Header
+      function updateTimestamp() {
+        const tsElement = document.getElementById('telemetry-timestamp');
+        if (tsElement) {
+          const now = new Date();
+          const iso = now.toISOString().replace('T', ' // ').substring(0, 22) + ' UTC';
+          tsElement.textContent = iso;
+        }
+      }
+      updateTimestamp();
+
+      // Image error graceful fallback to clean dark SVG graphic
+      const images = document.querySelectorAll('.placeholder-img');
+      images.forEach(function (img) {
+        img.addEventListener('error', function () {
+          this.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600" fill="%23090909"><rect width="100%" height="100%" fill="%23090909"/><path d="M0,300 L300,300 L350,220 L400,380 L450,270 L500,320 L550,290 L600,300 L1200,300" stroke="%23ff3b30" stroke-width="2" fill="none" opacity="0.6"/><text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" fill="%23666666" font-family="monospace" font-size="16">BELGELENMIŞ FAY HATTI YER TUTUCU GÖRSELİ</text></svg>';
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+{
+  "name": "Eğitim Fayı (The Education Fault Line)",
+  "description": "SKA 4: Nitelikli Eğitim konusunu işleyen, küresel ve yerel eğitim krizinin soğuk gerçekliğini sunan tek sayfalık web sitesi.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
