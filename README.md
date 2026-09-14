@@ -16,7 +16,7 @@ Proje, dünyadan ve Türkiye'den derlenen güncel verileri dört ana modül üze
 3. **Türkiye Fay Hattı:** PISA akademik yetersizlik verileri, örgün eğitim dışı kalanlar ve okullardaki beslenme krizi.
 4. **Gelecek Projeksiyonu:** Mevcut tablonun 10-15 yıl sonraki sosyo-ekonomik izdüşümü ve işgücü riskleri.
 
-<a href=""><img align="center" src="https://github.com/StarLordBerke4/egitim-fayi-projesi/blob/main/img/EgitimFay%C4%B1UI.png" alt="UI Tasarım" width="1200"/></a>
+<a href=""><img align="center" src="https://github.com/StarLordBerke4/egitim-fayi-projesi/blob/main/img/Banner.png" alt="Banner" width="1200"/></a>
 
 # 📌 Proje Rol Çıktıları
 
@@ -90,7 +90,7 @@ UNESCO İstatistik Enstitüsü verileri, 2023 itibarıyla dünya çapında 763 m
 
 Projenin karanlık ve sarsıcı atmosferine uygun olarak, toplanan eğitim verilerinin ciddiyetini hiçbir yönlendirme yapmadan, sadece soğuk gerçekliğiyle yansıtan infografik ve arayüz görsellerini tasarlar.
 
-<a href=""><img align="center" src="https://github.com/StarLordBerke4/egitim-fayi-projesi/blob/main/img/EgitimFay%C4%B1UI.png" alt="UI Tasarım" width="1200"/></a>
+<a href=""><img align="center" src="https://github.com/StarLordBerke4/egitim-fayi-projesi/blob/main/img/%C4%B0nfografi.png" alt="Infografi" width="1200"/></a>
 
 ## 🌐 Rol 4 — Site Mimar & No-Code Kurucu Web Builder
 
