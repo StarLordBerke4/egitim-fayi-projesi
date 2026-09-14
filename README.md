@@ -16,6 +16,8 @@ Proje, dünyadan ve Türkiye'den derlenen güncel verileri dört ana modül üze
 3. **Türkiye Fay Hattı:** PISA akademik yetersizlik verileri, örgün eğitim dışı kalanlar ve okullardaki beslenme krizi.
 4. **Gelecek Projeksiyonu:** Mevcut tablonun 10-15 yıl sonraki sosyo-ekonomik izdüşümü ve işgücü riskleri.
 
+<a href=""><img align="center" src="https://github.com/StarLordBerke4/egitim-fayi-projesi/blob/main/img/EgitimFay%C4%B1UI.png" alt="UI Tasarım" width="1200"/></a>
+
 
 ## 🛠️ Teknolojiler ve Araçlar
 
