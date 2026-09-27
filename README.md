@@ -119,3 +119,6 @@ Projede kullanılan tüm istatistikler, ulusal ve uluslararası resmi raporları
 | **OECD** | PISA Türkiye Ön Raporu | 2022/2023 | Akademik yetersizlik ve okulda açlık |
 | **Dünya Bankası** | Küresel Öğrenme Yoksulluğu | 2022 | 10 yaş grubu okuma-anlama eksikliği |
 | **UNESCO** | Küresel Eğitim İzleme (GEM) | 2023 | Okulsuz bırakılanlar ve okuryazarlık |
+
+---
+*Geliştirici: Berke Mert Öztürk*
